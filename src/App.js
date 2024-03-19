@@ -1,7 +1,7 @@
 import { ActivityIndicator, Dimensions, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 import { plug } from './plugConfig'
-import {TextEncoder} from 'text-encoding'
+import "whatwg-fetch"
 
 const App = () => {
     const [loading,setLoading]=useState(false)
@@ -11,6 +11,7 @@ const App = () => {
         console.log("plug object : ",plug)
         await plug?.getPrincipal().then((res)=>{
             console.log(res)
+            setPrincipal(res)
         }).catch((err)=>{
             console.log(err)
         })
